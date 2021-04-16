@@ -15,10 +15,10 @@ const Client: React.FC<ClientProps> = ({ client }) => {
       <Table.Td>
         <Field grouped>
           <Control>
-            <ClientPendingBillsModal client={client} />
+            <CreateBillModal client={client} />
           </Control>
           <Control>
-            <CreateBillModal client={client} />
+            <ClientPendingBillsModal client={client} />
           </Control>
         </Field>
       </Table.Td>
