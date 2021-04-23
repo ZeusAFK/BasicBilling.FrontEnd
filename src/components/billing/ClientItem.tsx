@@ -1,10 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 // @ts-ignore
-import { Table, Field, Control } from "reactbulma";
+import { Table, Field, Control, Button, Icon } from "reactbulma";
+import { FaFileAlt } from "react-icons/fa";
+import { setClient } from "../../store/actions/billing/billing";
 import ClientPendingBillsModal from "./ClientPendingBillsModal";
-import CreateBillModal from "./CreateBillModal";
 
 const Client: React.FC<ClientProps> = ({ client }) => {
+  const dispatch = useDispatch();
+
+  const showCreateBillModal = (client: IClient) => {
+    dispatch(setClient(client));
+  };
+
   return (
     <Table.Tr>
       <Table.Th>{client.id}</Table.Th>
@@ -15,7 +23,17 @@ const Client: React.FC<ClientProps> = ({ client }) => {
       <Table.Td>
         <Field grouped>
           <Control>
-            <CreateBillModal client={client} />
+            <Button
+              primary
+              onClick={() => {
+                showCreateBillModal(client);
+              }}
+            >
+              <Icon>
+                <FaFileAlt />
+              </Icon>
+              <span>Create bill</span>
+            </Button>
           </Control>
           <Control>
             <ClientPendingBillsModal client={client} />

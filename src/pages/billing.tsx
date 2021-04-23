@@ -8,6 +8,7 @@ import { getClients } from "../api/clients";
 import ClientItem from "../components/billing/ClientItem";
 import "react-notifications-component/dist/theme.css";
 import "animate.css";
+import CreateBillModal from "../components/billing/CreateBillModal";
 
 const BillingPage: React.FunctionComponent<IPage> = (props) => {
   useEffect(() => {
@@ -28,6 +29,7 @@ const BillingPage: React.FunctionComponent<IPage> = (props) => {
 
   return (
     <div>
+      <CreateBillModal />
       <Title is="2">
         <Icon medium>
           <FaMoneyCheckAlt />

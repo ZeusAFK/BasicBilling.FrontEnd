@@ -52,3 +52,13 @@ type IPaymentCreate = {
 type IPayment = IEntity & {
   bill: IBill;
 };
+
+type BillReducerAction = {
+  type: string
+  payload: any
+}
+
+type CreateBillClientState = {
+  client: IClient,
+  modalState: boolean
+}

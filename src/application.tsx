@@ -3,6 +3,8 @@ import { Route, Switch, RouteComponentProps, NavLink } from "react-router-dom";
 import ReactNotifications from "react-notifications-component";
 import logging from "./config/logging";
 import routes from "./config/routes";
+import configureStore from "./store/configureStore";
+import { Provider } from "react-redux";
 import "sanitize.css/sanitize.css";
 import "./css/index.css";
 // @ts-ignore
@@ -14,7 +16,7 @@ const Application: React.FunctionComponent<{}> = (props) => {
   }, []);
 
   return (
-    <div>
+    <Provider store={configureStore}>
       <ReactNotifications />
       <header>
         <nav className="navbar has-shadow">
@@ -75,7 +77,7 @@ const Application: React.FunctionComponent<{}> = (props) => {
           </div>
         </div>
       </main>
-    </div>
+    </Provider>
   );
 };
 
